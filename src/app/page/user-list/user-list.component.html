@@ -1,32 +1,29 @@
 <div class="row">
   <div class="col-12 mt-2">
     <!-- Search -->
-    <!-- <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
+    <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
       <span class="font-weight-bold text-uppercase col-2 pt-2 ml-5">Search by:</span>
       <select class="form-control border col-3" [(ngModel)]="filterKey">
         <option *ngFor="let key of filterKeys" [value]="[key]">{{key}}</option>
       </select>
       <input [(ngModel)]="phrase" class="filter-search border rounded col-5 mx-3" type="text" placeholder="Search...">
-    </div> -->
-    <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
-      <span class="font-weight-bold text-uppercase col-2 pt-2 ml-5">Search by name:</span>
-      <input [(ngModel)]="phrase" class="filter-search border rounded col-5 mx-3" type="text" placeholder="Search...">
     </div>
+
 
     <h2>User List</h2>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Active</th>
+          <th (click)="onColumnSelect('id')">#</th>
+          <th (click)="onColumnSelect('name')">Name</th>
+          <th (click)="onColumnSelect('email')">Email</th>
+          <th (click)="onColumnSelect('address')">Address</th>
+          <th (click)="onColumnSelect('active')">Active</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async | filter:phrase:'name'">
+        <tr *ngFor="let user of users$ | async | filter:phrase:filterKey | sorter:columnKey">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

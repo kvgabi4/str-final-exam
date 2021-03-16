@@ -17,11 +17,17 @@ export class UserListComponent implements OnInit {
   filterKey: string = 'name';
   filterKeys: string[] = Object.keys(new User());
 
+  columnKey: string = 'id';
+
   constructor(
     private userService: UserService,
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onColumnSelect(key: string): void {
+    this.columnKey = key;
   }
 
   onDelete(user: User) {
