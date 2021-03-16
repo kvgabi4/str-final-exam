@@ -55,7 +55,7 @@
         </select>
       </div>
 
-      <button [disabled]="userForm.invalid || clicked" (click)="onUpdate(user)" type="submit" class="btn btn-primary btn-block mt-5">
+      <button [disabled]="userForm.invalid || clicked" (click)="onUpdate(userForm,user)" type="submit" class="btn btn-primary btn-block mt-5">
         <i class="fa fa-save"></i>
       </button>
 
