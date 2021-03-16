@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-12 mt-2">
+
     <!-- Search -->
     <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
       <span class="font-weight-bold text-uppercase col-2 pt-2 ml-5">Search by:</span>
@@ -7,6 +8,15 @@
         <option *ngFor="let key of filterKeys" [value]="[key]">{{key}}</option>
       </select>
       <input [(ngModel)]="phrase" class="filter-search border rounded col-5 mx-3" type="text" placeholder="Search...">
+    </div>
+
+    <!-- Add new -->
+    <div class="card card-plain">
+      <div class="card-header">
+        <button [routerLink]="['user/0']" type="button" class="btn btn-primary btn-block btn-lg">
+          Add new +
+        </button>
+      </div>
     </div>
 
 
