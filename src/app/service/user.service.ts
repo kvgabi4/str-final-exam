@@ -48,12 +48,6 @@ export class UserService {
       .subscribe(() => this.getAll());
   }
 
-  remove(user: User): Observable<User> {
-    return this.http.delete<User>(`${this.endpoint}/${user.id}`).pipe(
-      tap(() => this.getAll())
-    );
-  }
-
 
   /**
    * Create a user in the database.

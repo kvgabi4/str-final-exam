@@ -32,35 +32,12 @@ export class UserListComponent implements OnInit {
     this.columnKey = key;
   }
 
-  onDelete(user: User):void {
-    this.userService.delete(user);
-
-
-    this.router.navigate([]);
-
-    // location.reload();
-    // this.notifyService.showSuccessWithTimeout(`
-    //   <table class="table">
-    //     <thead>
-    //       <tr>
-    //         <th>customerID</th>
-    //         <th>productID</th>
-    //         <th>amount</th>
-    //         <th>status</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-    //       <tr class="text-danger">
-    //         <td>${order.customerID}</td>
-    //         <td>${order.productID} </td>
-    //         <td>${order.amount}</td>
-    //         <td>${order.status}</td>
-    //       </tr>
-    //     </tbody>
-    //   </table>
-    //   </span>`,
-    //   "You have deleted this event:",
-    //   5000)
+  onDelete(user: User): void {
+    if (window.confirm('Delete this user?')) {
+      this.userService.delete(user)
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.navigate([this.router.url]);
+    }
   }
 
 }
