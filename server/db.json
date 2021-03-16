@@ -629,48 +629,6 @@
       "email": "lorsman2h@example.com",
       "address": "7548 Prentice Circle",
       "active": true
-    },
-    {
-      "id": 91,
-      "name": "Ursuline Doreward",
-      "email": "udoreward2i@bigcartel.com",
-      "address": "7265 Eliot Place",
-      "active": true
-    },
-    {
-      "id": 92,
-      "name": "Cullan Swindall",
-      "email": "cswindall2j@people.com.cn",
-      "address": "40411 Birchwood Point",
-      "active": false
-    },
-    {
-      "id": 93,
-      "name": "Mohandas Redholls",
-      "email": "mredholls2k@soup.io",
-      "address": "0839 Menomonie Drive",
-      "active": true
-    },
-    {
-      "id": 94,
-      "name": "Donny MacGorley",
-      "email": "dmacgorley2l@msu.edu",
-      "address": "657 Claremont Drive",
-      "active": true
-    },
-    {
-      "id": 95,
-      "name": "Loralee Degoix",
-      "email": "ldegoix2m@amazon.de",
-      "address": "180 Darwin Park",
-      "active": true
-    },
-    {
-      "id": 96,
-      "name": "Brianne Pentony",
-      "email": "bpentony2n@angelfire.com",
-      "address": "294 Talisman Place",
-      "active": true
     }
   ]
 }

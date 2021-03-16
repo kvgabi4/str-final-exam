@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
@@ -21,6 +22,7 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -30,8 +32,13 @@ export class UserListComponent implements OnInit {
     this.columnKey = key;
   }
 
-  onDelete(user: User) {
+  onDelete(user: User):void {
     this.userService.delete(user);
+
+
+    this.router.navigate([]);
+
+    // location.reload();
     // this.notifyService.showSuccessWithTimeout(`
     //   <table class="table">
     //     <thead>
