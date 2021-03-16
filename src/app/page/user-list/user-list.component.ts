@@ -11,12 +11,43 @@ import { UserService } from 'src/app/service/user.service';
 export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
+  // clicked: boolean = false;
+
+  phrase: string = '';
+  filterKey: string = 'name';
+  filterKeys: string[] = Object.keys(new User());
 
   constructor(
     private userService: UserService,
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onDelete(user: User) {
+    this.userService.delete(user);
+    // this.notifyService.showSuccessWithTimeout(`
+    //   <table class="table">
+    //     <thead>
+    //       <tr>
+    //         <th>customerID</th>
+    //         <th>productID</th>
+    //         <th>amount</th>
+    //         <th>status</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       <tr class="text-danger">
+    //         <td>${order.customerID}</td>
+    //         <td>${order.productID} </td>
+    //         <td>${order.amount}</td>
+    //         <td>${order.status}</td>
+    //       </tr>
+    //     </tbody>
+    //   </table>
+    //   </span>`,
+    //   "You have deleted this event:",
+    //   5000)
   }
 
 }

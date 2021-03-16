@@ -1,5 +1,18 @@
 <div class="row">
   <div class="col-12 mt-2">
+    <!-- Search -->
+    <!-- <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
+      <span class="font-weight-bold text-uppercase col-2 pt-2 ml-5">Search by:</span>
+      <select class="form-control border col-3" [(ngModel)]="filterKey">
+        <option *ngFor="let key of filterKeys" [value]="[key]">{{key}}</option>
+      </select>
+      <input [(ngModel)]="phrase" class="filter-search border rounded col-5 mx-3" type="text" placeholder="Search...">
+    </div> -->
+    <div class="search bg-light border rounded w-100 p-3 mt-5 d-flex flex-row">
+      <span class="font-weight-bold text-uppercase col-2 pt-2 ml-5">Search by name:</span>
+      <input [(ngModel)]="phrase" class="filter-search border rounded col-5 mx-3" type="text" placeholder="Search...">
+    </div>
+
     <h2>User List</h2>
     <table class="table table-striped">
       <thead>
@@ -13,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async">
+        <tr *ngFor="let user of users$ | async | filter:phrase:'name'">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
@@ -24,9 +37,10 @@
               <button [routerLink]="['user/' + user.id]" class="btn btn-info">
                 <i class="fa fa-pencil"></i>
               </button>
-              <button class="btn btn-danger">
+              <button (click)="onDelete(user)" class="btn btn-danger">
                 <i class="fa fa-trash"></i>
               </button>
+              <!-- <i *ngIf="!clicked" class="fa fa-save"></i> -->
             </div>
           </td>
         </tr>
